@@ -2,13 +2,13 @@ import path from 'path'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
 import { buildConfig } from 'payload'
-import { postgresAdapter } from '@payloadcms/db-postgres'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { Media } from './collections/Media'
-import { Users } from './collections/Users'
+import { Users } from './collections/users/config'
 import { smtpAdapter } from './config/adapters/smtp.adapter'
 import { storageAdapter } from './config/adapters/storage.adapter'
 import { env } from './config/env'
+import { databaseAdapter } from './database/database.adapter'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -25,8 +25,8 @@ export default buildConfig({
   // Security
   secret: env.PAYLOAD_SECRET,
   serverURL: env.NEXT_PUBLIC_APP_URL,
-  cors: [env.NEXT_PUBLIC_APP_URL].filter(Boolean),
-  csrf: [env.NEXT_PUBLIC_APP_URL].filter(Boolean),
+  cors: [env.NEXT_PUBLIC_APP_URL, env.NEXT_PUBLIC_API_URL].filter((url): url is string => !!url),
+  csrf: [env.NEXT_PUBLIC_APP_URL, env.NEXT_PUBLIC_API_URL].filter((url): url is string => !!url),
 
   // Content Schema
   collections: [Users, Media],
@@ -37,15 +37,23 @@ export default buildConfig({
   sharp,
 
   // Adapters
-  db: postgresAdapter({
-    pool: {
-      connectionString: process.env.DATABASE_URL || '',
-    },
-  }),
+  db: databaseAdapter,
   email: smtpAdapter,
 
   // Plugins
   plugins: [storageAdapter],
+
+  // GraphQL
+  graphQL: {
+    disable: true,
+  },
+
+  // Localization
+  localization: {
+    locales: ['en', 'vi'],
+    defaultLocale: 'en',
+    fallback: true,
+  },
 
   // Development & Meta
   typescript: {
