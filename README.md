@@ -62,6 +62,23 @@ Alternatively, you can use [Docker](https://www.docker.com) to spin up this temp
 
 That's it! The Docker instance will help you get up and running quickly while also standardizing the development environment across your teams.
 
+## Documentation
+
+### Backend Documentation
+
+Chi tiết về Payload CMS backend, xem [Backend Documentation](./docs/backend/README.md).
+
+Tài liệu bao gồm:
+
+- [Tổng quan hệ thống](./docs/backend/01-overview.md)
+- [Kiến trúc hệ thống](./docs/backend/02-architecture.md)
+- [Components và Modules](./docs/backend/03-components.md)
+- [Data Models](./docs/backend/04-data-models.md)
+- [API Specifications](./docs/backend/05-apis.md)
+- [Configuration](./docs/backend/06-configuration.md)
+- [Security & Access Control](./docs/backend/07-security.md)
+- [Deployment & Operations](./docs/backend/08-deployment.md)
+
 ## Questions
 
 If you have any issues or questions, reach out to us on [Discord](https://discord.com/invite/payload) or start a [GitHub discussion](https://github.com/payloadcms/payload/discussions).
