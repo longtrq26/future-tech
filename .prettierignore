@@ -1,0 +1,68 @@
+# Dependencies and build outputs
+node_modules/
+.next/
+out/
+build/
+dist/
+coverage/
+
+# Generated files
+payload-types.ts
+src/app/(payload)/admin/importMap.js
+
+# Artifacts and logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.env*
+.env.local
+.env.*.local
+.DS_Store
+*.log
+
+# Git and version control
+.git/
+.gitignore
+
+# Lock files (managed by package managers)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Public assets and media
+public/
+media/
+uploads/
+
+# Test results and coverage
+test-results/
+playwright-report/
+blob-report/
+.playwright/
+coverage/
+.nyc_output/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Payload CMS specific
+src/payload-types.ts
+
+# Cursor and AI tools
+.agents
+.agent
+.cursor/
+.cursorignore
+
+# Docker
+Dockerfile*
+docker-compose*.yml
+.dockerignore
+
+# Documentation generated files
+CHANGELOG.md
+*.mdx
