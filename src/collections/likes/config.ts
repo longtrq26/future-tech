@@ -1,11 +1,13 @@
 import { isAdminOrOwner } from '@/access'
 import type { CollectionConfig } from 'payload'
+import { ROLES } from '@/access/roles'
 
 export const Likes: CollectionConfig = {
   slug: 'likes',
   admin: {
     useAsTitle: 'id',
     defaultColumns: ['post', 'user', 'createdAt'],
+    hidden: ({ user }) => user.role !== ROLES.ADMIN,
   },
   access: {
     read: () => true,

@@ -18,6 +18,7 @@ export const Users: CollectionConfig = {
   admin: {
     useAsTitle: 'name',
     defaultColumns: ['name', 'email', 'role'],
+    hidden: ({ user }) => user.role !== ROLES.ADMIN,
   },
   access: {
     read: () => true,

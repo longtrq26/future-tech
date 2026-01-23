@@ -1,11 +1,13 @@
 import { isAdminOrOwner } from '@/access'
 import type { CollectionConfig } from 'payload'
+import { ROLES } from '@/access/roles'
 
 export const Comments: CollectionConfig = {
   slug: 'comments',
   admin: {
     useAsTitle: 'content',
     defaultColumns: ['content', 'author', 'post', 'createdAt'],
+    hidden: ({ user }) => user.role !== ROLES.ADMIN,
   },
   access: {
     read: () => true, // Publicly readable
