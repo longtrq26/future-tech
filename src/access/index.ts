@@ -27,9 +27,6 @@ export const isAdminOrOwner: Access = ({ req: { user } }) => {
   }
 }
 
-// Alias cho isAdminOrOwner để code dễ đọc hơn trong ngữ cảnh bài viết
-export const isAdminOrAuthor = isAdminOrOwner
-
 // Check xem user có phải chính mình không (hoặc là Admin)
 export const isSelfOrAdmin: Access = ({ req: { user } }) => {
   // Nếu chưa đăng nhập -> Cấm
@@ -74,7 +71,3 @@ export const readAccess: Access = ({ req: { user } }) => {
     },
   }
 }
-
-// Logic cho Comment/Interaction
-// Chỉ cho phép update/delete nếu chính user đó tạo ra
-export const isOwnerOrAdmin = isAdminOrOwner
