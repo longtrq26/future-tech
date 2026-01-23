@@ -3,7 +3,12 @@ import { fileURLToPath } from 'url'
 import sharp from 'sharp'
 import { buildConfig } from 'payload'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
+import { Categories } from './collections/categories/config'
+import { Comments } from './collections/comments/config'
+import { Likes } from './collections/likes/config'
 import { Media } from './collections/media/config'
+import { Posts } from './collections/posts/config'
+import { Tags } from './collections/tags/config'
 import { Users } from './collections/users/config'
 import { smtpAdapter } from './config/adapters/smtp.adapter'
 import { storageAdapter } from './config/adapters/storage.adapter'
@@ -29,7 +34,7 @@ export default buildConfig({
   csrf: [env.NEXT_PUBLIC_APP_URL, env.NEXT_PUBLIC_API_URL].filter((url): url is string => !!url),
 
   // Content Schema
-  collections: [Users, Media],
+  collections: [Users, Media, Categories, Tags, Posts, Comments, Likes],
   globals: [],
 
   // Editor & Image Processing
