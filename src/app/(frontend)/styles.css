@@ -7,10 +7,9 @@
 }
 
 html {
+  background: rgb(0, 0, 0);
   font-size: 18px;
   line-height: 32px;
-
-  background: rgb(0, 0, 0);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -21,12 +20,11 @@ body,
 }
 
 body {
-  font-family: system-ui;
-  font-size: 18px;
-  line-height: 32px;
-
   margin: 0;
   color: rgb(1000, 1000, 1000);
+  font-size: 18px;
+  line-height: 32px;
+  font-family: system-ui;
 
   @media (max-width: 1024px) {
     font-size: 15px;
@@ -35,16 +33,16 @@ body {
 }
 
 img {
+  display: block;
   max-width: 100%;
   height: auto;
-  display: block;
 }
 
 h1 {
   margin: 40px 0;
+  font-weight: bold;
   font-size: 64px;
   line-height: 70px;
-  font-weight: bold;
 
   @media (max-width: 1024px) {
     margin: 24px 0;
@@ -94,10 +92,10 @@ svg {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 100vh;
+  margin: 0 auto;
   padding: 45px;
   max-width: 1024px;
-  margin: 0 auto;
+  height: 100vh;
   overflow: hidden;
 
   @media (max-width: 400px) {
@@ -106,10 +104,10 @@ svg {
 
   .content {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     flex-grow: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     h1 {
       text-align: center;
@@ -122,21 +120,21 @@ svg {
     gap: 12px;
 
     a {
-      text-decoration: none;
-      padding: 0.25rem 0.5rem;
       border-radius: 4px;
+      padding: 0.25rem 0.5rem;
+      text-decoration: none;
     }
 
     .admin {
-      color: rgb(0, 0, 0);
-      background: rgb(1000, 1000, 1000);
       border: 1px solid rgb(0, 0, 0);
+      background: rgb(1000, 1000, 1000);
+      color: rgb(0, 0, 0);
     }
 
     .docs {
-      color: rgb(1000, 1000, 1000);
-      background: rgb(0, 0, 0);
       border: 1px solid rgb(1000, 1000, 1000);
+      background: rgb(0, 0, 0);
+      color: rgb(1000, 1000, 1000);
     }
   }
 
@@ -155,10 +153,10 @@ svg {
     }
 
     .codeLink {
-      text-decoration: none;
-      padding: 0 0.5rem;
-      background: rgb(60, 60, 60);
       border-radius: 4px;
+      background: rgb(60, 60, 60);
+      padding: 0 0.5rem;
+      text-decoration: none;
     }
   }
 }
