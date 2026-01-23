@@ -7,8 +7,7 @@ export const env = createEnv({
     DATABASE_URL: z.url(),
 
     PAYLOAD_SECRET: z.string().min(32),
-    PAYLOAD_JWT_SECRET: z.string().min(32),
-    PAYLOAD_JWT_EXPIRATION: z.string().regex(/^\d+[smhdwy]$/),
+    PAYLOAD_JWT_EXPIRATION: z.string(),
 
     S3_ENDPOINT: z.url(),
     S3_ACCESS_KEY_ID: z.string().min(1),
@@ -35,7 +34,6 @@ export const env = createEnv({
     DATABASE_URL: process.env.DATABASE_URL,
 
     PAYLOAD_SECRET: process.env.PAYLOAD_SECRET,
-    PAYLOAD_JWT_SECRET: process.env.PAYLOAD_JWT_SECRET,
     PAYLOAD_JWT_EXPIRATION: process.env.PAYLOAD_JWT_EXPIRATION,
 
     S3_ENDPOINT: process.env.S3_ENDPOINT,

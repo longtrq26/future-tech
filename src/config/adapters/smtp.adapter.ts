@@ -4,7 +4,7 @@ import { env } from '../env'
 export const smtpAdapter = nodemailerAdapter({
   defaultFromAddress: env.SMTP_FROM_ADDRESS,
   defaultFromName: env.SMTP_FROM_NAME,
-  transport: {
+  transportOptions: {
     host: env.SMTP_HOST,
     port: env.SMTP_PORT,
     secure: env.SMTP_SECURE,
