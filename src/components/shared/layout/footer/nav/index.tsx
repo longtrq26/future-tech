@@ -19,7 +19,7 @@ const FooterNav = () => {
 
           return (
             <div key={index} className='col-span-1 flex flex-col gap-[1rem] lg:gap-[1.75rem]'>
-              <h6 className='text-[1rem] font-medium leading-[1.3] tracking-[-0.03em] lg:text-[1.125rem]'>
+              <h6 className='truncate text-[1rem] font-medium leading-[1.3] tracking-[-0.03em] lg:text-[1.125rem]'>
                 {item.heading}
               </h6>
 
@@ -30,7 +30,7 @@ const FooterNav = () => {
                       <Link
                         href={link.href}
                         className={cn(
-                          'text-[.875rem] leading-[1.3] tracking-[-0.03em]',
+                          'truncate text-[.875rem] leading-[1.3] tracking-[-0.03em]',
                           isActive ? '' : 'text-dark-40',
                         )}
                       >
@@ -52,7 +52,7 @@ const FooterNav = () => {
       </div>
       {/* Resources */}
       <div className='flex flex-col gap-[1rem] lg:gap-[1.75rem]'>
-        <h6 className='text-[1rem] font-medium leading-[1.3] tracking-[-0.03em] lg:text-[1.125rem]'>
+        <h6 className='truncate text-[1rem] font-medium leading-[1.3] tracking-[-0.03em] lg:text-[1.125rem]'>
           Resources
         </h6>
 
@@ -64,7 +64,7 @@ const FooterNav = () => {
                 href={item.href}
                 className='flex items-center gap-[.25rem] rounded-[.375rem] border border-dark-15 px-[.875rem] py-[.5rem]'
               >
-                <p className='text-[.875rem] leading-[1.5] tracking-[-0.03em] text-grey-60'>
+                <p className='truncate text-[.875rem] leading-[1.5] tracking-[-0.03em] text-grey-60'>
                   {item.label}
                 </p>
 

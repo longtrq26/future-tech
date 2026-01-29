@@ -1,6 +1,7 @@
 import React from 'react'
 import '../globals.css'
 import { Inter, Kumbh_Sans } from 'next/font/google'
+import { AuthProvider } from '@/providers/auth-provider'
 import { Toaster } from 'sonner'
 import { cn } from '@/lib/utils'
 
@@ -27,8 +28,10 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html lang='en'>
       <body className={cn(kumbhSans.variable, inter.variable, 'antialiased')}>
-        {children}
-        <Toaster />
+        <AuthProvider>
+          {children}
+          <Toaster />
+        </AuthProvider>
       </body>
     </html>
   )
