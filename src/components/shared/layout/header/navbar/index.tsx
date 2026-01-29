@@ -46,7 +46,7 @@ const Navbar = () => {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  'rounded-[0.375rem] border border-transparent bg-transparent px-[1.125rem] py-[0.625rem] text-[0.875rem] font-medium leading-[1.5]',
+                  'rounded-[.375rem] border border-transparent bg-transparent px-[1.125rem] py-[.625rem] text-[.875rem] font-medium leading-[1.5]',
 
                   isActive ? 'border-dark-20 bg-dark-08' : 'text-grey-50',
                 )}
@@ -56,6 +56,14 @@ const Navbar = () => {
             )
           })}
         </nav>
+
+        {/* CTA */}
+        <Link
+          href='/login'
+          className='hidden items-center justify-center rounded-[.375rem] bg-yellow-55 px-[.875rem] py-[.625rem] text-[0.875rem] font-medium leading-[1.5] text-dark-08 lg:flex'
+        >
+          Login
+        </Link>
       </div>
     </div>
   )
