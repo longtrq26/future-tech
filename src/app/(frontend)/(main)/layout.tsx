@@ -6,7 +6,7 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div>
       <Header />
-      <main>{children}</main>
+      <main className='min-h-screen'>{children}</main>
       <Footer />
     </div>
   )
