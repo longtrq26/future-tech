@@ -50,6 +50,6 @@
 
 @layer base {
   body {
-    @apply bg-dark-08 text-white;
+    @apply bg-dark-08 font-inter text-white;
   }
 }

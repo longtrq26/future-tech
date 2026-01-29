@@ -13,6 +13,13 @@ module.exports = {
   ],
   theme: {
     extend: {
+      container: {
+        center: true,
+        padding: {
+          DEFAULT: '1rem',
+          lg: '5rem',
+        },
+      },
       fontFamily: {
         kumbhSans: ['var(--font-kumbh-sans)', 'sans-serif'],
         inter: ['var(--font-inter)', 'sans-serif'],
