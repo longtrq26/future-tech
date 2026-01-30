@@ -1,8 +1,8 @@
 'use client'
 
 import React, { createContext, useCallback, useEffect, useState } from 'react'
-import { authApi, RegisterData } from '@/api/auth'
 import { AuthUser } from '@/types/auth'
+import { authApi, RegisterData } from '@/app/(frontend)/api/auth'
 
 /**
  * Định nghĩa kiểu dữ liệu cho Context
@@ -69,59 +69,66 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
    * Gọi API tạo user mới. Thường sau khi đăng ký có thể bắt user login
    * hoặc server tự động login và trả về user.
    */
-  const register = async (data: RegisterData): Promise<AuthUser> => {
+  /**
+   * ĐĂNG KÝ
+   * Gọi API tạo user mới. Thường sau khi đăng ký có thể bắt user login
+   * hoặc server tự động login và trả về user.
+   */
+  const register = useCallback(async (data: RegisterData): Promise<AuthUser> => {
     const { user } = await authApi.register(data)
     return user
-  }
+  }, [])
 
   /**
    * XÁC THỰC EMAIL
    * Dùng token từ URL gửi lên server để kích hoạt tài khoản
    */
-  const verifyEmail = async (token: string): Promise<boolean> => {
+  const verifyEmail = useCallback(async (token: string): Promise<boolean> => {
     return await authApi.verifyEmail(token)
-  }
+  }, [])
 
   /**
    * ĐĂNG NHẬP
    * 1. Gọi API login
    * 2. Nếu thành công, cập nhật state 'user' -> UI tự động chuyển sang trạng thái loggedIn
    */
-  const login = async (email: string, password: string): Promise<AuthUser> => {
+  const login = useCallback(async (email: string, password: string): Promise<AuthUser> => {
     const { user } = await authApi.login(email, password)
     setUser(user)
     return user
-  }
+  }, [])
 
   /**
    * ĐĂNG XUẤT
    * 1. Gọi API logout để xóa cookie/session ở server
    * 2. Xóa thông tin user ở client state
    */
-  const logout = async () => {
+  const logout = useCallback(async () => {
     try {
       await authApi.logout()
       setUser(null)
     } catch (error) {
       console.error('Logout failed', error)
     }
-  }
+  }, [])
 
-  return (
-    <AuthContext.Provider
-      value={{
-        user,
-        setUser,
-        isLoading,
-        login,
-        logout,
-        register,
-        verifyEmail,
-        // Xác định trạng thái nhanh để UI render (Loading -> LoggedIn hoặc LoggedOut)
-        status: isLoading ? 'loading' : user ? 'loggedIn' : 'loggedOut',
-      }}
-    >
-      {children}
-    </AuthContext.Provider>
+  const value = React.useMemo(
+    () => ({
+      user,
+      setUser,
+      isLoading,
+      login,
+      logout,
+      register,
+      verifyEmail,
+      // Xác định trạng thái nhanh để UI render (Loading -> LoggedIn hoặc LoggedOut)
+      status: (isLoading ? 'loading' : user ? 'loggedIn' : 'loggedOut') as
+        | 'loading'
+        | 'loggedIn'
+        | 'loggedOut',
+    }),
+    [user, isLoading, login, logout, register, verifyEmail],
   )
+
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
 }
