@@ -65,7 +65,7 @@ const UserMenuMobile = ({ onClose }: UserMenuMobileProps) => {
   return (
     <div className='border-b border-dark-15 py-[1rem]'>
       {/* User info */}
-      <div className='flex items-center gap-[0.625rem] rounded-[.375rem] py-[.625rem] text-[0.875rem] font-medium leading-[1.5]'>
+      <div className='flex items-center gap-[0.625rem] rounded-[.375rem] pb-[1rem] text-[0.875rem] font-medium leading-[1.5]'>
         {/* Avatar */}
         <Avatar className='size-[2.5625rem]'>
           <AvatarImage src={avatarUrl || undefined} />
@@ -86,7 +86,7 @@ const UserMenuMobile = ({ onClose }: UserMenuMobileProps) => {
       </div>
 
       {/* Menu items */}
-      <div className='space-y-[1rem] py-[.625rem]'>
+      <div className='space-y-[1rem]'>
         <Link
           href='/profile'
           onClick={onClose}
