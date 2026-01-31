@@ -14,6 +14,7 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from '@/components/ui/drawer'
+import UserMenuMobile from '../user-menu-mobile'
 
 const NavbarMobile = () => {
   const pathname = usePathname()
@@ -71,22 +72,7 @@ const NavbarMobile = () => {
 
           <div className='container flex w-full flex-col'>
             {/* CTA */}
-            <div className='flex flex-col gap-2 border-b border-dark-15 py-[1rem]'>
-              <Link
-                href='/login'
-                onClick={() => setIsMenuOpen(false)}
-                className='flex w-full items-center justify-center rounded-[0.5rem] bg-yellow-55 px-[2.125rem] py-[0.875rem] text-[0.875rem] font-medium leading-[1.71] text-dark-08'
-              >
-                Login
-              </Link>
-              <Link
-                href='/register'
-                onClick={() => setIsMenuOpen(false)}
-                className='flex w-full items-center justify-center rounded-[0.5rem] border border-dark-15 px-[2.125rem] py-[0.875rem] text-[0.875rem] font-medium leading-[1.71] text-white'
-              >
-                Create Account
-              </Link>
-            </div>
+            <UserMenuMobile onClose={() => setIsMenuOpen(false)} />
 
             <nav className='flex w-full flex-col'>
               {HEADER_LINKS.map(item => {

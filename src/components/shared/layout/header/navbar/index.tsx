@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation'
 import { HEADER_LINKS } from '@/constants/navigation'
 import { cn } from '@/lib/utils'
 import NavbarMobile from '../navbar-mobile'
+import UserMenu from '../user-menu'
 
 const Navbar = () => {
   const pathname = usePathname()
@@ -58,12 +59,7 @@ const Navbar = () => {
         </nav>
 
         {/* CTA */}
-        <Link
-          href='/login'
-          className='hidden items-center justify-center rounded-[.375rem] bg-yellow-55 px-[.875rem] py-[.625rem] text-[0.875rem] font-medium leading-[1.5] text-dark-08 lg:flex'
-        >
-          Login
-        </Link>
+        <UserMenu />
       </div>
     </div>
   )
