@@ -41,8 +41,12 @@ const RegisterForm = () => {
       })
       toast.success('Account created successfully')
       router.push('/login')
-    } catch (err: any) {
-      setServerError(err.message || 'Registration failed')
+    } catch (err) {
+      if (err instanceof Error) {
+        setServerError(err.message || 'Registration failed')
+      } else {
+        setServerError('Registration failed')
+      }
     }
   }
 

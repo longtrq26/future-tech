@@ -60,8 +60,14 @@ const LoginForm = () => {
       setServerError(null)
       await login(data.email, data.password)
       toast.success('Logged in successfully')
-    } catch (err: any) {
-      setServerError(err.message || 'Authentication failed')
+    } catch (err) {
+      if (err instanceof Error) {
+        // Bây giờ err đã được định danh là kiểu Error, có thể lấy .message
+        setServerError(err.message)
+      } else {
+        // Trường hợp lỗi không xác định (hiếm gặp)
+        setServerError('Authentication failed')
+      }
       toast.error('Login failed')
     }
   }

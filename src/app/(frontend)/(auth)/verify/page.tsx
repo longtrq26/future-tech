@@ -3,7 +3,7 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useRouter, useSearchParams } from 'next/navigation'
+import { useSearchParams } from 'next/navigation'
 import ICClose from '@/components/icons/ic-close'
 import { authApi } from '@/app/(frontend)/api/auth'
 

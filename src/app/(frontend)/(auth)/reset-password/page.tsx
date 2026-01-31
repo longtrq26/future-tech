@@ -43,8 +43,12 @@ const ResetPasswordPage = () => {
       await authApi.resetPassword(token, data.password)
       toast.success('Password reset successfully')
       router.push('/login')
-    } catch (err: any) {
-      setServerError(err.message || 'Failed to reset password.')
+    } catch (err) {
+      if (err instanceof Error) {
+        setServerError(err.message || 'Failed to reset password.')
+      } else {
+        setServerError('Failed to reset password.')
+      }
     }
   }
 
