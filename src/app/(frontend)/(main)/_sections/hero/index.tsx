@@ -40,7 +40,9 @@ const HeroSection = () => {
           </div>
 
           {/* Stats */}
-          <div className='w-full border-y border-dark-15 lg:mt-[100px]'>
+          <div className='relative w-full border-t border-dark-15 lg:mt-[100px]'>
+            <div className='absolute right-full top-[-0.5px] hidden h-[1px] w-[100vw] bg-dark-15 lg:block' />
+
             <div className='grid w-full grid-cols-3'>
               {STATS.map(stat => (
                 <div
@@ -60,7 +62,7 @@ const HeroSection = () => {
           </div>
         </div>
 
-        <div className='relative w-full overflow-hidden lg:max-w-[523px] lg:items-end lg:border-b lg:border-dark-15'>
+        <div className='relative w-full overflow-hidden lg:max-w-[523px] lg:items-end'>
           {/* Decoration */}
           <div className='absolute left-[-80px] top-[-10px] z-[-1] h-[286.9904px] w-[423.28px] rotate-[35.39deg] lg:left-[-100px] lg:top-[-30px] lg:h-[422.04px] lg:w-[622.4496px]'>
             <Image
