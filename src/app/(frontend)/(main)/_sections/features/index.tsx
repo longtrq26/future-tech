@@ -1,70 +1,109 @@
 import React from 'react'
-import Link from 'next/link'
-import ICContributors from '@/components/icons/ic-contributors'
-import ICLink from '@/components/icons/ic-link'
-import ICNews from '@/components/icons/ic-news'
-import ICReadership from '@/components/icons/ic-readership'
+import ICFuture from '@/components/icons/ic-future'
+import ICResearch from '@/components/icons/ic-research'
 
 const FEATURES = [
   {
-    icon: <ICNews className='size-[1.5rem] lg:size-[2rem]' />,
-    label: 'Latest News Updates',
-    subLabel: 'Stay Current',
-    description: 'Over 1,000 articles published monthly',
+    icon: <ICFuture className='size-[40px]' />,
+    label: 'Future Technology Blog',
+    subLabel: 'Stay informed with our blog section dedicated to future technology.',
+    features: [
+      {
+        label: 'Quantity',
+        description: 'Over 1,000 articles on emerging tech trends and breakthroughs.',
+      },
+      {
+        label: 'Variety',
+        description: 'Articles cover fields like AI, robotics, biotechnology, and more.',
+      },
+      {
+        label: 'Frequency',
+        description: 'Fresh content added daily to keep you up to date.',
+      },
+      {
+        label: 'Authoritative',
+        description: 'Written by our team of tech experts and industry professionals.',
+      },
+    ],
   },
   {
-    icon: <ICContributors className='size-[1.5rem] lg:size-[2rem]' />,
-    label: 'Expert Contributors',
-    subLabel: 'Trusted Insights',
-    description: '50+ renowned AI experts on our team',
-  },
-  {
-    icon: <ICReadership className='size-[1.5rem] lg:size-[2rem]' />,
-    label: 'Global Readership',
-    subLabel: 'Worldwide Impact',
-    description: '2 million monthly readers',
+    icon: <ICResearch />,
+    label: 'Research Insights Blogs',
+    subLabel: 'Dive deep into future technology concepts with our research section.',
+    features: [
+      {
+        label: 'Depth',
+        description: '500+ research articles for in-depth understanding.',
+      },
+      {
+        label: 'Graphics',
+        description: 'Visual aids and infographics to enhance comprehension.',
+      },
+      {
+        label: 'Trends',
+        description: 'Explore emerging trends in future technology research.',
+      },
+      {
+        label: 'Contributors',
+        description: 'Contributions from tech researchers and academics.',
+      },
+    ],
   },
 ]
 
 const FeaturesSection = () => {
   return (
-    <section className='w-full border-y border-dark-15'>
-      <div className='container flex w-full flex-col lg:flex-row'>
-        {FEATURES.map((feature, index) => (
-          <div
-            key={index}
-            className='flex w-full flex-col gap-y-[.625rem] border-b border-dark-15 py-[1.875rem] first:pl-0 last:pr-0 lg:gap-y-[1.25rem] lg:border-r lg:px-[3.125rem] lg:py-[2.5rem] lg:last:border-r-0'
-          >
-            <div className='flex flex-col gap-y-[1rem] lg:gap-y-[1.25rem]'>
-              <div className='flex size-[1.875rem] items-center justify-center lg:size-[2.5rem]'>
+    <section className='w-full border-t border-dark-15'>
+      {/* Heading */}
+      <div className='w-full bg-dark-10'>
+        <div className='container flex flex-col gap-[10px] py-[40px]'>
+          <span className='size-fit rounded-[4px] bg-dark-20 px-[8px] py-[4px] text-[14px] font-medium leading-[1.5] tracking-[-0.03em] lg:text-[16px]'>
+            Unlock the Power of
+          </span>
+
+          <h3 className='font-kumbhSans text-[28px] font-medium leading-[1.3] tracking-[-0.03em] lg:text-[44px]'>
+            FutureTech Features
+          </h3>
+        </div>
+      </div>
+
+      {FEATURES.map((feature, index) => (
+        <div key={index} className='w-full border-t border-t-dark-15'>
+          <div className='container flex w-full flex-col lg:flex-row'>
+            {/* Header */}
+            <div className='flex flex-col gap-[20px] border-r border-dark-15 py-[50px] lg:max-w-[413px] lg:gap-[40px] lg:pr-[60px]'>
+              <div className='flex size-[50px] items-center justify-center lg:size-[60px]'>
                 {feature.icon}
               </div>
-              <div className='flex items-center justify-between'>
-                <div className='space-y-[.125rem]'>
-                  <h6 className='text-[1rem] leading-[1.5] tracking-[-0.03em] lg:text-[1.125rem]'>
-                    {feature.label}
-                  </h6>
-                  <p className='text-[.875rem] leading-[1.5] tracking-[-0.03em] text-grey-50 lg:text-[1rem]'>
-                    {feature.subLabel}
-                  </p>
-                </div>
-                <Link
-                  href={'#'}
-                  className='flex size-[2.5rem] items-center justify-center rounded-[6.25rem] bg-yellow-55 p-[.625rem] lg:size-[2.75rem] lg:p-[.75rem]'
-                >
-                  <div className='flex size-[1.25rem] items-center justify-center'>
-                    <ICLink className='size-[.8594rem] text-dark-08' />
-                  </div>
-                </Link>
+
+              <div className='flex flex-col gap-[6px] lg:gap-[10px]'>
+                <h3 className='font-kumbhSans text-[24px] font-semibold leading-[1.5] tracking-[-0.03em] lg:text-[30px]'>
+                  {feature.label}
+                </h3>
+                <p className='text-[14px] leading-[1.5] tracking-[-0.03em] text-grey-60 lg:text-[16px]'>
+                  {feature.subLabel}
+                </p>
               </div>
             </div>
 
-            <p className='font-kumbhSans text-[.875rem] leading-[1.5] tracking-[-0.03em] text-grey-60 lg:text-[1rem]'>
-              {feature.description}
-            </p>
+            <div className='grid grid-cols-1 gap-[10px] px-[16px] py-[30px] lg:grid-cols-2 lg:gap-[20px] lg:px-0 lg:py-[60px] lg:pl-[60px]'>
+              {feature.features.map((feature, index) => (
+                <div
+                  key={index}
+                  className='flex flex-col gap-[4px] rounded-[10px] border border-dark-15 bg-dark-10 p-[24px] lg:gap-[16px] lg:p-[30px]'
+                >
+                  <p className='text-[18px] font-medium leading-[1.5] tracking-[-0.03em] lg:text-[20px]'>
+                    {feature.label}
+                  </p>
+                  <p className='text-[14px] leading-[1.5] tracking-[-0.03em] text-grey-60 lg:text-[16px]'>
+                    {feature.description}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
-        ))}
-      </div>
+        </div>
+      ))}
     </section>
   )
 }
