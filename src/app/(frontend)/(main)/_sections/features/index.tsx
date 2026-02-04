@@ -1,6 +1,7 @@
 import React from 'react'
 import ICFuture from '@/components/icons/ic-future'
 import ICResearch from '@/components/icons/ic-research'
+import BrandSection from '@/components/shared/brand/section'
 
 const FEATURES = [
   {
@@ -53,25 +54,15 @@ const FEATURES = [
 
 const FeaturesSection = () => {
   return (
-    <section className='w-full border-t border-dark-15'>
-      {/* Heading */}
-      <div className='w-full bg-dark-10'>
-        <div className='container flex flex-col gap-[10px] py-[40px]'>
-          <span className='size-fit rounded-[4px] bg-dark-20 px-[8px] py-[4px] text-[14px] font-medium leading-[1.5] tracking-[-0.03em] lg:text-[16px]'>
-            Unlock the Power of
-          </span>
-
-          <h3 className='font-kumbhSans text-[28px] font-medium leading-[1.3] tracking-[-0.03em] lg:text-[44px]'>
-            FutureTech Features
-          </h3>
-        </div>
-      </div>
-
-      {FEATURES.map((feature, index) => (
+    <BrandSection
+      title='FutureTech Features'
+      subtitle='Unlock the Power of'
+      hasButton={false}
+      content={FEATURES.map((feature, index) => (
         <div key={index} className='w-full border-t border-t-dark-15'>
           <div className='container flex w-full flex-col lg:flex-row'>
             {/* Header */}
-            <div className='flex flex-col gap-[20px] border-r border-dark-15 py-[50px] lg:max-w-[413px] lg:gap-[40px] lg:pr-[60px]'>
+            <div className='flex flex-col gap-[20px] border-r-0 border-dark-15 py-[50px] lg:max-w-[413px] lg:gap-[40px] lg:border-r lg:pr-[60px]'>
               <div className='flex size-[50px] items-center justify-center lg:size-[60px]'>
                 {feature.icon}
               </div>
@@ -86,7 +77,7 @@ const FeaturesSection = () => {
               </div>
             </div>
 
-            <div className='grid grid-cols-1 gap-[10px] px-[16px] py-[30px] lg:grid-cols-2 lg:gap-[20px] lg:px-0 lg:py-[60px] lg:pl-[60px]'>
+            <div className='grid grid-cols-1 gap-[10px] border-t border-dark-15 px-[16px] py-[30px] lg:grid-cols-2 lg:gap-[20px] lg:border-t-0 lg:px-0 lg:py-[60px] lg:pl-[60px]'>
               {feature.features.map((feature, index) => (
                 <div
                   key={index}
@@ -104,7 +95,7 @@ const FeaturesSection = () => {
           </div>
         </div>
       ))}
-    </section>
+    />
   )
 }
 
