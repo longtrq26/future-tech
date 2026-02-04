@@ -11,7 +11,7 @@ const FooterNav = () => {
   const pathname = usePathname()
 
   return (
-    <div className='flex w-full flex-col gap-[1.25rem] py-[2.5rem] lg:flex-row lg:gap-[3.125rem] lg:py-[3.75rem]'>
+    <div className='container flex w-full flex-col gap-[1.25rem] border-t border-dark-15 py-[2.5rem] lg:flex-row lg:gap-[3.125rem] lg:py-[3.75rem]'>
       {/* Links */}
       <div className='grid w-full grid-cols-2 gap-[1.25rem] lg:grid-cols-4 lg:gap-[3.125rem]'>
         {FOOTER_LINKS.map((item, index) => {

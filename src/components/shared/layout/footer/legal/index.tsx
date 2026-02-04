@@ -4,7 +4,7 @@ import { SOCIAL_LINKS } from '@/constants/navigation'
 
 const FooterLegal = () => {
   return (
-    <div className='flex w-full flex-col gap-[1.25rem] border-t border-dark-15 py-[1.5rem]'>
+    <div className='container flex w-full flex-col gap-[1.25rem] border-t border-dark-15 py-[1.5rem]'>
       {/* Social links mobile */}
       <div className='flex w-full items-center justify-center gap-[0.875rem] lg:hidden'>
         {SOCIAL_LINKS.map(item => (
